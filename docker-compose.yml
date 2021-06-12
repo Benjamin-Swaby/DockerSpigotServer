@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+    mcServer:
+        build: .
+        ports:
+            - "25565:25565"
+        image: mcserver
+
+        #ALL the necessary swag for the server :)
+        volumes:
+            - /etc/mcserver/world:/opt/minecraft_server/world
+            - /etc/mcserver/nether:/opt/minecraft_server/world_nether
+            - /etc/mcserver/end:/opt/minecraft_server/world_the_end
+            - /etc/mcserver/server.properties:/opt/minecraft_server/server.properties
+            - /etc/mcserver/ops.json:/opt/minecraft_server/ops.json
+            - /etc/mcserver/plugins:/opt/minecraft_server/plugins
+
